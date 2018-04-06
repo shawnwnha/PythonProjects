@@ -1,0 +1,12 @@
+#background{
+	width: 25%;
+	height: 50%;
+}
+
+#bakcground .p1{
+	display: block;
+}
+
+#button{
+	background-color: blue;
+}

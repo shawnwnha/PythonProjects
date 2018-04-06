@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GreatNumber</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/GreatNumber.css')}}">
+</head>
+<body>
+	<h1>Welcome to the Great Number Game!</h1>
+	<h3>I am thinking of a number between 1 and 100<br>Take a guess!</h3>
+	<h2>{{playagain}}</h2>
+	<h2>{{value}}</h2>
+	<form action="/number" method ="post">
+		<input type="text" name="number">
+		<input type="submit" name="Leggo!">
+	</form>
+
+</body>
+</html>
