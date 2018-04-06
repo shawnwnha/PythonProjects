@@ -9,6 +9,14 @@
 	<h3>I am thinking of a number between 1 and 100<br>Take a guess!</h3>
 	<h2>{{playagain}}</h2>
 	<h2>{{value}}</h2>
+	{% if div == 0 %}
+	<div id = "equal">EQUAL!!</div>
+	{% elif div == 1 %}
+	<div id = "higher">HIGHER!!!</div>
+	{% elif div ==2 %}
+	<div id = "lower">LOWER!!!</div>
+	{% endif %}
+
 	<form action="/number" method ="post">
 		<input type="text" name="number">
 		<input type="submit" name="Leggo!">

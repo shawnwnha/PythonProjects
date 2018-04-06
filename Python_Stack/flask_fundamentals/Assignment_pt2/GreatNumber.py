@@ -20,15 +20,18 @@ def inputnumber():
 	if session['playernumber'] == session['random']:
 		session['random'] = random.randint(0,100)
 		result = "you're right!!! GOOD JOB! IF you want to play more, just input value again"
-		return render_template('GreatNumber.html', playagain= result)
+		index = 0
+		return render_template('GreatNumber.html', playagain= result, div = index)
 
 	elif session['playernumber'] > session['random']:
 		result  = "that's too high"
-		return render_template('GreatNumber.html', value = result)
+		index = 1
+		return render_template('GreatNumber.html', value = result, div = index)
 
 	elif session['playernumber'] < session['random']:
 		result = "that's too low"	
-		return render_template('GreatNumber.html', value = result)
+		index = 2
+		return render_template('GreatNumber.html', value = result, div =index)
 
 
 app.run(debug=True)
