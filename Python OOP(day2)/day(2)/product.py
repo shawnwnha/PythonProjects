@@ -12,7 +12,6 @@ class product(object):
 
 	def addtax(self,tax):
 		self.price *= (1-tax)
-		print "After-tax sales Price:",self.price 
 		return self 
 
 	def returnP(self,reason):
@@ -29,7 +28,7 @@ class product(object):
 
 	def display(self):
 		print "ITEM:", self.itemname
-		print "Final Price:", self.price 
+		print "Final Price:", self.price
 		print "Brand:",self.brand
 		print "Weight:", self.weight
 		print "Condition:",self.status
