@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Ninja Page </title>
+	<link rel ="stylesheet" type="text/css" href="{{ url_for('static', filename='css/good.css') }}">
+	<script type="text/javascript" src ="{{ url_for('static', filename ='js/good.js') }}"></script>
+</head>
+<body>
+	<form action = "/dojo/new" method = "post">
+		First_Name: <input type ="text" name ="first_name">
+		Last_Name: <input type = "text" name="last_name">
+		<input type ="submit" value = "CLICK to Submit" id ="submitbutton">
+	</form>
+</body>
+</html>

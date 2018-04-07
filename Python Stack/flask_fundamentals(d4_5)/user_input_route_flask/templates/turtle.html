@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset ="utf-8">
+	<title>turtle</title>
+</head>
+<body>
+	{% if name == 'red' %}
+	<img src= "{{ url_for('static', filename='img/red.jpg')}}" alt ="red">
+	{% elif name == 'blue' %}
+	<img src= "{{ url_for('static', filename='img/blue.jpg')}}" alt ="blue">
+	{% elif name == 'orange' %}
+	<img src= "{{ url_for('static', filename='img/orange.jpg')}}" alt ="orange">
+	{% elif name == 'purple' %}
+	<img src= "{{ url_for('static', filename='img/purple.jpg')}}" alt ="purple">
+	{% else %}
+	<img src= "{{ url_for('static', filename='img/lady.jpg')}}" alt ="lady">
+	{% endif %}
+</body>
+</html>
