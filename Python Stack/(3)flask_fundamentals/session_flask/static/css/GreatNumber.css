@@ -1,0 +1,25 @@
+*{
+	text-align: center;
+}
+
+#equal{
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	margin: 0px auto;
+
+}
+
+#higher{
+	width: 200px;
+	height: 200px;
+	background-color: green;
+	margin: 0px auto;
+}
+
+#lower{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	margin: 0px auto;
+}
