@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>This is user input page</title>
+	<link rel ="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_stylesheet.css') }}">
+	<script type ="text/javascript" src="{{ url_for('static', filename= 'js/my_script.js') }}"></script>
+</head>
+<body>
+	<h1>this is view templates manipulation</h1>
+	<h1>{{name}}</h1>
+	<h2>{{email}}</h2>
+	<h3>{{times}}</h3>
+	{% for x in range(0,times): %}
+	<p>{{x}}</p>
+	{% endfor %}
+</body>
+</html>

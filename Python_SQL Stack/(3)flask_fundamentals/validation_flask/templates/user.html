@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Reigstration</title>
+</head>
+<body>
+	<form action="/register/user/" method="post">
+		Email:<input type="text" name="email">
+		First_name:<input type="text" name="first_name">
+		Last_name:<input type="text" name="last_name">
+		Password: <input type="password" name="password">
+		Confirm Password: <input type="password" name="password_c">
+		<input type="submit" value="Click to Submit!">
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+		{% with validate_messages = get_flashed_messages(with_categories= True) %}
+			{% if validate_messages %}
+				<div class =flashes>
+				{% for category, message in validate_messages%}
+					<p class="{{category}}">{{ message }}</p>
+				{% endfor %}
+				</div>
+			{% endif %}
+		{% endwith %}
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	</form>
+</body>
+</html>

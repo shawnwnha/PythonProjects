@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Counter Page</title>
+	<link rel="stylesheet" type="text/css" href ="{{ url_for('static', filename='css/counter.css')}}">
+</head>
+<body>
+	<div id ="background">
+		<h1>Counter</h1>
+		<h3>{{counter}}</h3>
+		<form action = '/post' method = 'post'>
+			<input type ='hidden' name='hidden' value ="increment2">
+			<input type="submit" value ="increment by 2">
+		</form>
+		<form action = '/reset' method = 'post'>
+			<input type ='hidden' name='hidden1' value ="reset">
+			<input type="submit" value ="reset">
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+*{
+	font-family: "Times New Roman", Times, serif;
+}
+
+#top_score{
+	width: 300px;
+	height:50px;
+	border:1px solid black;
+	display: inline-block;
+	font-weight: bold;
+	text-align: left;
+}
+
+.number_text{
+	width: 40%;
+	height:50%;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 10px;
+	vertical-align: top;
+	line-height: 25px;
+	font-size: 18px;
+}
+.number_box{
+	width: 40%;
+	height:50%;
+	border:1px solid black;
+	display: inline-block;
+	margin-top: 10px;
+	vertical-align: top;
+	line-height: 25px;
+	font-size: 18px;
+	text-align: center;
+}
+
+#main{
+	width: 1000px;
+	height:300px;
+	border:1px solid black;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 50px;
+}
+
+#farm, #cave, #house, #casino{
+	width:24%;
+	height:80%;
+	border:1px solid black;
+	display: inline-block;
+	margin-top: 30px;
+	vertical-align: top;
+}
+
+#bottom{
+	width: 1000px;
+	height:300px;
+	border:1px solid black;
+	text-align: left;
+	overflow: scroll;
+	font-family: "Courier New", Courier, monospace;
+}
