@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MAIN</title>
+	<style>
+		*{
+			text-align: center;
+		}
+
+		#user_message{
+			margin-top: 50px;
+			border: 1px solid black;
+			background-color: black;
+			color: #52ff30;
+		}
+		#messagebox{
+			border: 1px solid black;
+		}
+		#input_comment{
+			border: 1px solid black;
+		}
+		#user_comment{
+			color: green;
+		}
+		#flash{
+			color: red;
+		}
+		#profile{
+			display: inline-block;
+			float: right;
+		}
+		#button{
+			background-color: red;
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<div id = "profile">
+		<form action="/main/logoff" methods='get'>
+			<input type="submit" value="Log - off" id ="button">
+		</form>
+	</div>
+	<div id = "flash">	
+		{% with flashes = get_flashed_messages() %}
+			{% if flashes %}
+				{% for flash in flashes%}
+					<p>{{ flash }}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith%}
+	</div>
+	<div id="wrapper">
+		<div id ="message_input">
+			<form action="/main/message" method ='post'>
+				<input type ='hidden' name='hidden' value ='post_message'>
+				<label for="message">Post a message: <textarea name ="message"></textarea></label>
+				<input type="submit" value="post">
+			</form>
+		</div>
+		{% for message in SQL_messages %}
+			<div id = user_message>
+				<p>{{message['user_name']}} {{message['created_at']}}</p>
+				<div id = messagebox>{{message['message']}}</div>
+			</div>
+			{% for comment in SQL_comments %}
+				{% if comment['message_id'] == message['id'] %}
+					<div id ="user_comment">
+						<p>{{comment['user_name']}} - {{comment['created_at']}}</p>
+						<div id = "commentbox">{{comment['comment']}}</div>
+						<div id = "delete_comment">
+							<form action="/main/comment-delete" method ='post'>
+								<input type="hidden" name="hidden" value="{{comment['id']}}">
+								<input type ="submit" value="DELETE">
+							</form>
+						</div>
+
+					</div>
+				{% endif %}
+			{% endfor %}
+			<div id = input_comment>
+				<form action='/main/comment' method ='post'>
+					<input type="hidden" name="hidden" value="{{message['id']}}">
+					<label for="comment">Write Comment: <textarea name="comment"></textarea></label>
+					<input type="submit" value="COMMENT">
+				</form>
+			</div>
+		{% endfor %}
+	</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+select actor.actor_id, concat_ws()(' ', actor.first_name, actor.last_name)

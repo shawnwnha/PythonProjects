@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = 'utf-8'>
+	<title>1st page</title>
+	<style>
+		*{
+			text-align: center;
+		}
+		#wrapper{
+			display: inline-block;
+			border: 1px solid black;
+		}
+		#flash{
+			color: red;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+
+	</style>
+</head>
+<body>
+	<div id = 'wrapper'>
+		<form action="/login" method='post'>
+			<br>
+			<label for="id">ID:	<input type ="text" name="id"></label><br><br>
+			<label for="pw">Password:	<input type ="password" name="pw"></label><br>
+			<input type="submit" value="Log In">
+		</form>
+		<br>
+		<a href='/registration'>Don't have an account yet? Click here to register</a>
+		<div id = 'flash'>
+			{% with flashes = get_flashed_messages()%}
+				{% if flashes %}
+					{% for flash in flashes %}
+						<h5>{{ flash }}</h5>
+					{% endfor%}
+				{% endif %}
+			{% endwith%}
+		</div>
+	</div>
+
+</body>
+</html>
+
+
+
+<!--############FLASH#######################
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<p>{{message}}</p>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+-->

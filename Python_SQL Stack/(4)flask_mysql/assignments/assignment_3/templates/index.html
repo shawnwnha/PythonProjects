@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration form</title>
+</head>
+<body>
+	<h1>Registration form</h1>
+		{% with validate_messages = get_flashed_messages(with_categories= True) %}
+			{% if validate_messages %}
+				<div class =flashes>
+				{% for category, message in validate_messages%}
+					<p class="{{category}}">{{ message }}</p>
+				{% endfor %}
+				</div>
+			{% endif %}
+		{% endwith %}
+	<form action="/users" method = 'post'>
+		<input type="hidden" name ="hidden" value="register">
+		<label for="user_email">Email:<input type="text" name="user_email"></label>
+		<label for="user_pw">Password:<input type="password" name="user_pw"></label>
+		<label for="user_pwc">Password Confirmation:<input type="password" name="user_pwc"></label>
+		<label for="user_first_name">First Name:<input type="text" name="user_first_name"></label>
+		<label for="user_last_name">Last Name:<input type="text" name="user_last_name"></label>
+		<input type="submit" value="Submit to Register">
+	</form>
+
+	<h1>Log In </h1>
+	<form action="/users" method = 'post'>
+		<input type="hidden" name ="hidden" value="login">
+		<label for="login_id">Id:<input type="text" name="login_id"></label>
+		<label for="login_pw">Password:<input type="password" name="login_pw"></label>
+		<input type="submit" value="Log in">
+	</form>
+</body>
+</html>

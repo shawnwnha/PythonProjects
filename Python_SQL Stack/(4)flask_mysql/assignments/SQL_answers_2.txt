@@ -1,0 +1,66 @@
+1. 
+
+select city.city_id, city.city, customer.first_name, customer.last_name, customer.email, address.address 
+from city 
+join address on city.city_id = address.city_id 
+join customer on address.address_id = customer.address_id 
+where city.city_id = 312
+
+2. 
+
+select film.title, film.description, film.release_year, film.rating, category.name 
+from film_category 
+join film on film_category.film_id = film.film_id
+join category on film_category.category_id = category.category_id 
+where category.name = 'Comedy'
+
+3.
+
+select actor.actor_id, concat_ws(' ', actor.first_name, actor.last_name) as Actors, film.title, film.description, film.release_year 
+from film_actor 
+join film on film_actor.film_id = film.film_id 
+join actor on film_actor.actor_id = actor.actor_id
+where actor.actor_id = 5
+
+4. 
+
+select store.store_id, city.city_id, customer.first_name, customer.last_name, customer.email, address.address, city.city
+from customer 
+join store on customer.store_id = store.store_id 
+join address on customer.address_id = address.address_id
+join city on address.city_id = city.city_id 
+where city.city_id in (1,42,312,459) and store.store_id = 1
+
+5. 
+
+select film.title, film.description, film.release_year, film.rating, film.special_features 
+from film_actor 
+join actor on film_actor.actor_id = actor.actor_id 
+join film on film_actor.film_id = film.film_id 
+where film.rating = 'G' and actor.actor_id = 15 and film.special_features like'%behind the scenes'
+
+6. 
+
+select film.film_id, film.title, actor.actor_id, concat_ws(' ', actor.first_name, actor.last_name)
+from film_actor 
+join actor on film_actor.actor_id = actor.actor_id 
+join film on film_actor.film_id = film.film_id
+where film.film_id = 369
+
+7.
+
+select film.film_id, film.title, film.description, film.release_year, film.rating, film.special_features, category.name, film.rental_rate
+from film_category
+join category on film_category.category_id = category.category_id 
+join film on film_category.film_id = film.film_id 
+where film.rental_rate = 2.99 and category.name = 'drama'
+
+8. 
+
+select actor.actor_id, film.title, film.description, film.release_year, film.rating, film.special_features, category.name, concat_ws(' ', actor.first_name, actor.last_name) as actors
+from film_actor 
+join actor on film_actor.actor_id = actor.actor_id 
+join film on film_actor.film_id = film.film_id 
+join film_category on film.film_id = film_category.film_id 
+join category on film_category.category_id = category.category_id
+where actor.first_name = 'sandra' and actor.last_name = 'kilmer' and category.name = 'action'

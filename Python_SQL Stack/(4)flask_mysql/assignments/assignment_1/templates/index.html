@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is Friend Page</title>
+</head>
+<body>
+  <h1>Friends</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Friend Since</th>
+      <th></th>
+    </tr>
+    {% for friend in all_friends: %}
+    <tr>
+      <td>{{ friend['first_name'] }} {{ friend['last_name'] }}</td>
+      <td>{{ friend['age'] }}</td>
+      <td>{{ friend['date'] }}</td>
+      <td>{{ friend['year'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+
+
+  <h1>Add a Friend</h1>
+  <br>
+
+  <form action='/friends' method='POST'>
+    <label for="first_name">First name: <input type ='text' name ='first_name'></label>
+    <label for="last_name">Last name: <input type ='text' name ='last_name'></label>
+    <label for="age">Age: <input type ='text' name = 'age'></label>
+    <input type ='submit' value = 'submit'>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success Page</title>
+</head>
+<body>	
+
+	{% with messages = get_flashed_messages(with_categories= True) %}
+		{% if messages %}
+			<div class =flashes>
+			{% for category, message in messages%}
+				<p class="{{category}}">{{ message }}</p>
+			{% endfor %}
+			</div>
+		{% endif %}
+	{% endwith %}
+	<table>
+		<tr>
+			<th>Email Address Entered</th>
+			<th>Entered_date</th>
+			<th>Entered_time</th>
+		</tr>
+		{% for e in valid_emails %}
+		<tr>
+			<td>{{e['email']}}</td>
+			<td>{{e['date']}}</td>
+			<td>{{e['time']}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	<form action="/emails" method='post'>
+		<input type="submit" value="delete" name="delte">
+	</form>
+</body>
+</html>

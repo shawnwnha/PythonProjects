@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Registration</title>
+	<style>
+		#flash{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div id = "wrapper">
+		<form action="/registration/user" method='post'>
+			<label for="first_name">First Name: <input type="text" name="first_name"></label><br>
+			<label for="last_name">Last Name: <input type="text" name="last_name"></label><br>
+			<label for="email">Email(ID): <input type="text" name="email"></label><br>
+			<label for="password1">Password: <input type="password" name="password1"></label><br>
+			<label for="password2">Password Confirmation: <input type="password" name="password2"></label><br>
+			<input type="submit" value="register">
+		</form>
+		<div id ='flash'>
+			{% with flashes = get_flashed_messages() %}
+				{% if flashes %}
+				<div id = 'flash_wrapper'>
+					{% for flash in flashes %}
+						{{ flash }}<br>
+					{% endfor %}
+				</div>
+				{% endif %}
+			{% endwith %}
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+<!--############FLASH#######################
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<p>{{message}}</p>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+-->
